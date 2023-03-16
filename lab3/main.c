@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 typedef struct person{
     int id;
@@ -20,8 +19,8 @@ int main()
         fwrite(p+i,sizeof(person_t),1,wfp);
     }
     fclose(wfp);
-    fseek(wfp,0,SEEK_SET);
     FILE*rfp=fopen("person.bin","r");
+    fseek(rfp,0,SEEK_SET);
     person_t tmp;
     int i=0;
     while (fread(&tmp,sizeof(person_t),1,rfp)){
